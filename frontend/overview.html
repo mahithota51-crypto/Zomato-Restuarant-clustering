@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f5f7" />
+    <title>Restaurant intelligence | Zomato</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css?v=2" />
+  </head>
+  <body data-page="overview" data-load-dashboard="true">
+    <section class="dashboard-section" id="overview" data-page-content aria-labelledby="overview-title">
+      <div class="section-heading"><div><span class="section-kicker">01 / OVERVIEW</span><h2 id="overview-title">Restaurant intelligence at a glance</h2></div><span class="section-note" id="overview-updated">Local dataset</span></div>
+      <div class="metric-grid">
+        <article class="metric-card"><span class="metric-icon icon-red"><i class="fa-solid fa-store"></i></span><div><span class="metric-label">Total restaurants</span><strong id="metric-restaurants">--</strong><small>Hyderabad dining venues</small></div></article>
+        <article class="metric-card"><span class="metric-icon icon-blue"><i class="fa-regular fa-comments"></i></span><div><span class="metric-label">Reviews analyzed</span><strong id="metric-reviews">--</strong><small>Review records in dataset</small></div></article>
+        <article class="metric-card"><span class="metric-icon icon-gold"><i class="fa-solid fa-star"></i></span><div><span class="metric-label">Average dining rating</span><strong id="metric-rating">--</strong><small>Scale from 1.0 to 5.0</small></div></article>
+        <article class="metric-card"><span class="metric-icon icon-green"><i class="fa-solid fa-indian-rupee-sign"></i></span><div><span class="metric-label">Average dining cost</span><strong id="metric-cost">--</strong><small>Listed cost for two</small></div></article>
+        <article class="metric-card"><span class="metric-icon icon-coral"><i class="fa-regular fa-face-smile"></i></span><div><span class="metric-label">Positive rating share</span><strong id="metric-positive">--</strong><small>Reviews rated 4.0 or higher</small></div></article>
+      </div>
+      <div class="chart-grid overview-charts">
+        <article class="surface chart-card chart-wide"><div class="card-heading"><div><h3><i class="fa-solid fa-chart-line"></i> Cost vs. rating by cluster</h3><p>Each point represents one restaurant</p></div><span class="chart-unit">Cost for two · Rating</span></div><canvas id="overview-scatter" aria-label="Restaurant cost versus rating scatter chart"></canvas><div class="legend" id="cluster-legend"></div></article>
+        <article class="surface chart-card"><div class="card-heading"><div><h3><i class="fa-solid fa-chart-pie"></i> Customer rating breakdown</h3><p>Rating bands used as a sentiment proxy</p></div></div><div class="donut-wrap"><canvas id="sentiment-donut" aria-label="Customer rating breakdown doughnut chart"></canvas><div class="donut-center"><strong id="donut-total">--</strong><span>reviews</span></div></div><div class="legend legend-stack" id="sentiment-legend"></div></article>
+        <article class="surface chart-card"><div class="card-heading"><div><h3><i class="fa-solid fa-bowl-food"></i> Most popular cuisines</h3><p>Restaurant listing frequency</p></div></div><canvas id="cuisine-bars" aria-label="Popular cuisines bar chart"></canvas></article>
+        <article class="surface chart-card chart-wide"><div class="card-heading"><div><h3><i class="fa-solid fa-layer-group"></i> Restaurant persona distribution</h3><p>Cost and review-rating segments</p></div><a class="text-link" href="clustering.html">Explore clusters <i class="fa-solid fa-arrow-right"></i></a></div><div class="persona-distribution" id="persona-distribution"></div></article>
+      </div>
+    </section>
+    <dialog id="restaurant-dialog" class="restaurant-dialog"><button class="dialog-close" id="dialog-close" type="button" aria-label="Close details"><i class="fa-solid fa-xmark"></i></button><div id="dialog-content"></div></dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="layout.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

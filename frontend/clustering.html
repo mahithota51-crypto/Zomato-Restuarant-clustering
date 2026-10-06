@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f5f7" />
+    <title>Restaurant clustering | Zomato</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css?v=2" />
+  </head>
+  <body data-page="clustering" data-load-dashboard="true">
+    <section class="dashboard-section" id="clustering" data-page-content aria-labelledby="clustering-title">
+      <div class="section-heading"><div><span class="section-kicker">03 / SEGMENTATION</span><h2 id="clustering-title">Restaurant clustering</h2><p>Explore cost and rating personas calculated from local restaurant data.</p></div></div>
+      <div class="persona-grid" id="persona-cards"></div>
+      <div class="surface cluster-intro"><div class="cluster-glyph"><i class="fa-solid fa-cubes-stacked"></i></div><div><span class="section-kicker">K-MEANS CLUSTER SPACE</span><h3>Explore restaurant personas in two dimensions</h3><p>Clusters are calculated from standardized cost and average rating features. The persona names are descriptive labels.</p></div><span class="pill">4 clusters</span></div>
+      <div class="chart-grid cluster-charts">
+        <article class="surface chart-card"><div class="card-heading"><div><span class="view-label">2D VIEW</span><h3>Restaurant cluster map</h3></div><span class="chart-unit">Compare cluster separation</span></div><canvas id="cluster-scatter" aria-label="Restaurant cluster scatter chart"></canvas></article>
+        <article class="surface chart-card"><div class="card-heading"><div><span class="view-label">PROFILE VIEW</span><h3>Cluster cost and rating</h3></div><span class="chart-unit">Cluster averages</span></div><div class="cluster-bars" id="cluster-bars"></div></article>
+      </div>
+      <div class="surface simulator"><div class="card-heading"><div><h3><i class="fa-solid fa-wand-magic-sparkles"></i> Restaurant persona simulator</h3><p>Classify a sample profile using the same cost and rating segments.</p></div></div><form id="persona-form" class="simulator-form"><label>Average cost for two (₹)<input id="sim-cost" type="number" min="0" value="1400" required /></label><label>Expected rating<input id="sim-rating" type="number" min="1" max="5" step="0.1" value="4.3" required /></label><label class="sim-cuisine">Cuisines<input id="sim-cuisines" type="text" value="Continental, Italian, Desserts" /></label><button class="button button-primary" type="submit"><i class="fa-solid fa-bolt"></i> Classify persona</button></form><div id="persona-result" class="sim-result" aria-live="polite"></div></div>
+      <div class="surface diagnostics"><div class="card-heading"><div><h3><i class="fa-solid fa-award"></i> Model diagnostics</h3><p>Transparent model details for this local dashboard</p></div></div><div class="diagnostic-grid"><div><span>Algorithm</span><strong>K-Means</strong></div><div><span>Features</span><strong>Cost + rating</strong></div><div><span>Scaling</span><strong>StandardScaler</strong></div><div><span>Cluster count</span><strong>4</strong></div></div></div>
+    </section>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="layout.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

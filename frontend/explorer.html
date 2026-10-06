@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f5f7" />
+    <title>Restaurant explorer | Zomato</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css?v=3" />
+  </head>
+  <body data-page="explorer" data-load-dashboard="true">
+    <section class="dashboard-section" id="explorer" data-page-content aria-labelledby="explorer-title">
+      <div class="section-heading"><div><span class="section-kicker">02 / DISCOVER</span><h2 id="explorer-title">Restaurant explorer</h2><p>Search and compare restaurants from the local dataset.</p></div></div>
+      <div class="surface explorer-toolbar">
+        <label class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="restaurant-search" type="search" placeholder="Search name or cuisine" aria-label="Search restaurants by name or cuisine" /></label>
+        <label class="filter-control"><span>Cuisine</span><select id="cuisine-filter"><option value="">All cuisines</option></select></label>
+        <label class="filter-control"><span>Persona</span><select id="persona-filter"><option value="">All personas</option></select></label>
+        <label class="filter-control budget-filter"><span>Customer budget <output id="budget-output">Any budget</output></span><select id="budget-tier" aria-label="Choose a customer budget"><option value="all">Any budget</option><option value="custom">Custom amount</option></select><div class="budget-adjust"><input id="budget-filter" type="range" min="0" max="3000" step="50" value="3000" aria-label="Adjust maximum restaurant cost" /><input id="budget-custom" type="number" min="0" max="3000" step="50" value="3000" aria-label="Custom maximum cost in rupees" /></div></label>
+        <label class="filter-control"><span>Min rating</span><select id="rating-filter"><option value="0">1.0+ ★</option><option value="3">3.0+ ★</option><option value="3.5">3.5+ ★</option><option value="4">4.0+ ★</option><option value="4.5">4.5+ ★</option></select></label>
+        <label class="filter-control"><span>Sort by</span><select id="sort-filter"><option value="rating-desc">Rating: high to low</option><option value="rating-asc">Rating: low to high</option><option value="cost-asc">Cost: low to high</option><option value="cost-desc">Cost: high to low</option><option value="name-asc">Name: A to Z</option></select></label>
+        <div class="view-switch" role="group" aria-label="Result layout"><button class="view-button active" id="grid-view" type="button" aria-label="Grid view" title="Grid view"><i class="fa-solid fa-grip"></i></button><button class="view-button" id="list-view" type="button" aria-label="List view" title="List view"><i class="fa-solid fa-list"></i></button></div>
+      </div>
+      <div class="results-summary"><span id="explorer-count">Loading restaurants</span><button class="text-link" id="clear-filters" type="button">Clear filters</button></div>
+      <div class="restaurant-grid" id="restaurant-grid" aria-live="polite"></div>
+    </section>
+    <dialog id="restaurant-dialog" class="restaurant-dialog"><button class="dialog-close" id="dialog-close" type="button" aria-label="Close details"><i class="fa-solid fa-xmark"></i></button><div id="dialog-content"></div></dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="layout.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

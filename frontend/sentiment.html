@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f5f7" />
+    <title>Review sentiment | Zomato</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css?v=2" />
+  </head>
+  <body data-page="sentiment">
+    <section class="dashboard-section" id="sentiment" data-page-content aria-labelledby="sentiment-title">
+      <div class="section-heading"><div><span class="section-kicker">04 / CUSTOMER VOICE</span><h2 id="sentiment-title">Review sentiment intelligence</h2><p>Try a review in the local keyword-based aspect analyzer.</p></div></div>
+      <div class="sentiment-layout">
+        <article class="surface review-analyzer"><div class="card-heading"><div><h3><i class="fa-solid fa-terminal"></i> Customer review text input</h3><p>Local keyword and aspect analysis</p></div></div><label class="sr-only" for="review-input">Review text</label><textarea id="review-input" rows="6" placeholder="Type or paste a restaurant review to analyze..."></textarea><div class="sample-row"><span>Sample reviews</span><button type="button" data-sample="The food was delicious and the ambience was lovely. Service was friendly.">Positive</button><button type="button" data-sample="The meal was average and the service was okay, but the price was fair.">Mixed</button><button type="button" data-sample="The food was cold and bland. Service was slow and the price was expensive.">Critical</button></div><button class="button button-primary" id="analyze-review" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i> Analyze review</button><p class="disclaimer">This lightweight demo uses a small local word list; it is not a trained NLP model.</p></article>
+        <article class="surface analysis-result"><div class="card-heading"><div><h3><i class="fa-solid fa-brain"></i> Aspect-based sentiment analysis</h3><p>Fine-grained review dimensions</p></div><span class="pill">Local analysis</span></div><div id="aspect-results" class="aspect-list"><div class="aspect-row"><span>Food &amp; taste</span><strong class="neutral">Awaiting review</strong></div><div class="aspect-row"><span>Ambience &amp; vibe</span><strong class="neutral">Awaiting review</strong></div><div class="aspect-row"><span>Service &amp; staff</span><strong class="neutral">Awaiting review</strong></div><div class="aspect-row"><span>Value &amp; pricing</span><strong class="neutral">Awaiting review</strong></div></div><div class="overall-score"><span>Overall polarity</span><strong id="overall-score">--</strong><h4 id="overall-label">Enter a review to begin</h4><div class="score-track"><span id="score-fill"></span></div><small>Score scale: -1.0 to +1.0</small></div></article>
+      </div>
+    </section>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="layout.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

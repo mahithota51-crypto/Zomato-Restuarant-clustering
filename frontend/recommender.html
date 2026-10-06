@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f5f7" />
+    <title>AI restaurant recommender | Zomato</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css?v=2" />
+  </head>
+  <body data-page="recommender" data-load-dashboard="true">
+    <section class="dashboard-section" id="recommender" data-page-content aria-labelledby="recommender-title">
+      <div class="section-heading"><div><span class="section-kicker">05 / PERSONALIZATION</span><h2 id="recommender-title">AI restaurant recommender</h2><p>Find cuisine matches ranked by the local content-based recommendation model.</p></div></div>
+      <div class="surface recommender-panel"><div class="card-heading"><div><h3><i class="fa-solid fa-wand-magic-sparkles"></i> Content-based recommendation engine</h3><p>TF-IDF similarity, rating, review volume, and budget fit</p></div><span class="pill">Local model</span></div><form id="recommendation-form" class="recommendation-form"><label>Seed cuisine<select id="recommend-cuisine"><option value="">Any cuisine</option></select></label><label>Maximum cost for two (₹)<input id="recommend-budget" type="number" min="0" step="50" placeholder="No limit" /></label><label>Minimum rating<select id="recommend-rating"><option value="0">Any rating</option><option value="3">3.0+ ★</option><option value="3.5" selected>3.5+ ★</option><option value="4">4.0+ ★</option><option value="4.5">4.5+ ★</option></select></label><label>Number of matches<select id="recommend-count"><option value="4">Top 4 matches</option><option value="6" selected>Top 6 matches</option><option value="8">Top 8 matches</option></select></label><button class="button button-primary" type="submit"><i class="fa-solid fa-bolt"></i> Generate matches</button></form><div class="recommendation-status" id="recommendation-status" aria-live="polite"></div><div class="recommendation-results" id="recommendation-results"></div></div>
+    </section>
+    <dialog id="restaurant-dialog" class="restaurant-dialog"><button class="dialog-close" id="dialog-close" type="button" aria-label="Close details"><i class="fa-solid fa-xmark"></i></button><div id="dialog-content"></div></dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="layout.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
